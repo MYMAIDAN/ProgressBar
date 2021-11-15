@@ -10,7 +10,7 @@ public:
     T& operator*(){return *m_data;}
     T* operator->(){return m_data;}
 
-    Iterator& operator++(){m_data++; return *this;}
+    Iterator& operator++(){std::cout << "*" << std::flush; m_data++; return *this;}
 
     friend bool operator!=(const Iterator<T> & a1, const Iterator<T>& a2) {
     return a1.m_data != a2.m_data;}

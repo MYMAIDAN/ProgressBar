@@ -3,18 +3,17 @@
 #include <vector>
 #include <chrono>
 #include "iterator.hpp"
+#include "range.hpp"
+ using namespace std::chrono_literals;
 
-class A
+class A : public Range<char>
 {
-    public:
-
-    Iterator<char> begin(){ return Iterator<char>(&m_data[0]);}
-    Iterator<char> end(){return Iterator<char>(&m_data[200]);}
-
+public:
+    explicit A() : Range(&m_data[0],&m_data[200])
+    {}
+    
 public:
     char m_data[200]{"Hello from my inner class"};
-
-
 };
 
 int main()
@@ -24,7 +23,7 @@ int main()
     A a;
 
     for( auto it : a){
-        std::cout << it;
+        std::this_thread::sleep_for(100ms);
     }
     // using namespace std::chrono_literals;
     // for( auto& it: temp){
