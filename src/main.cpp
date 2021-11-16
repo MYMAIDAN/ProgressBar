@@ -4,6 +4,7 @@
 #include <chrono>
 #include "iterator.hpp"
 #include "range.hpp"
+#include "progress.hpp"
  using namespace std::chrono_literals;
 
 class A : public Range<char>
@@ -22,7 +23,7 @@ int main()
     std::vector<int> temp({1,2,3,4,5,6});
     A a;
 
-    for( auto it : a){
+    for( auto it : Progress<A>(a)){
         std::this_thread::sleep_for(100ms);
     }
     // using namespace std::chrono_literals;

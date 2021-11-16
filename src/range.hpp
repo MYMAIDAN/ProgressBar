@@ -20,9 +20,11 @@ public:
     Iterator<T> end()
     {  
         return Iterator<T>(m_end);
+
     }
 
-protected:
+
+private:
     T* m_begin{nullptr};
     T* m_end{nullptr};
 
