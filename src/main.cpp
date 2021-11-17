@@ -5,7 +5,7 @@
 #include "iterator.hpp"
 #include "range.hpp"
 #include "progress.hpp"
- using namespace std::chrono_literals;
+using namespace std::chrono_literals;
 
 class A : public Range<char>
 {
